@@ -36,7 +36,7 @@
     }];
 }
 
--(void)callMultipartRequest:(NSString *)strURL withParams:(NSDictionary *)dictParams withImageData:(NSData *)imgData withImageName:(NSString *)imgName withImageParamaterName:(NSString *)imgParamName withMimeType:(NSString *)mimeTye completion:(AFServiceMultipartCallback)callback
+-(void)callMultipartRequest:(NSString *)strURL withParams:(NSDictionary *)dictParams withImageData:(NSData *)imgData withImageName:(NSString *)imgName withImageParamaterName:(NSString *)imgParamName withMimeType:(NSString *)mimeType completion:(AFServiceMultipartCallback)callback
 {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
@@ -46,7 +46,7 @@
         {
             [multipartFormData appendPartWithFormData:[[dictParams valueForKey:key] dataUsingEncoding:NSUTF8StringEncoding] name:key];
         }
-        [multipartFormData appendPartWithFileData:imgData name:imgParamName fileName:imgName mimeType:mimeTye]; //@"image/jpeg"
+        [multipartFormData appendPartWithFileData:imgData name:imgParamName fileName:imgName mimeType:mimeType]; //@"image/jpeg"
         
     } progress:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"Response: %@", responseObject);

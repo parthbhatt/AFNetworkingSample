@@ -20,9 +20,10 @@
     [super viewDidLoad];
     
     //GET Request
-    NSDictionary *paramsDict = @{@"consultation_id": @"8400"};
+    NSDictionary *paramsDict = @{<#key_value#>: <#param_value#>};
     AFServiceManager *serviceManager = [[AFServiceManager alloc] init];
-    [serviceManager callGETService:@"https://s1.coranetsolutions.com:8443/coranetWeb/consultation-details" withParameters:paramsDict completion:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+    NSString *strURL = <#URL#>;
+    [serviceManager callGETService:strURL withParameters:paramsDict completion:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         if(responseObject != nil && error == nil)
         {
             NSLog(@"ResonseObject: %@",responseObject);
@@ -34,18 +35,18 @@
     }];
     
     //Multipart request
-    NSData *imageData = nil;
-    NSDictionary *parameters = @{@"consultation_id": @"8400", @"file_name": @"8400_imagetest"}; //@"file_content": base64String
-    [serviceManager callMultipartRequest:@"" withParams:parameters withImageData:imageData withImageName:@"8400_imagetest" withImageParamaterName:@"file_content" withMimeType:@"image/jpeg" completion:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
-        if(responseObject != nil && error == nil)
-        {
-            NSLog(@"ResonseObject: %@",responseObject);
-        }
-        else
-        {
-            NSLog(@"Error: %@",error.description);
-        }
-    }];
+//    NSData *imageData = nil;
+//    NSDictionary *parameters = @{@"consultation_id": @"8400", @"file_name": @"8400_imagetest"}; //@"file_content": base64String
+//    [serviceManager callMultipartRequest:@"" withParams:parameters withImageData:imageData withImageName:@"8400_imagetest" withImageParamaterName:@"file_content" withMimeType:@"image/jpeg" completion:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+//        if(responseObject != nil && error == nil)
+//        {
+//            NSLog(@"ResonseObject: %@",responseObject);
+//        }
+//        else
+//        {
+//            NSLog(@"Error: %@",error.description);
+//        }
+//    }];
     
     
 }
